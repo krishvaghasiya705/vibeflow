@@ -1,0 +1,45 @@
+.trending-songs {
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    color: var(--white);
+    font-family: var(--font-family);
+  }
+
+  .trending-songs-cards {
+    margin: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    .trending-songs-card {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border-radius: 12px;
+
+      .trending-songs-card-image {
+        background-color: var(--bg-secondary);
+        height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .trending-songs-card-content {
+        padding: 12px;
+        p {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 20px;
+          color: var(--white);
+          font-family: var(--font-family);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+  }
+}

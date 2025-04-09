@@ -63,13 +63,12 @@ p {
 }
 
 .default-layout-body-content-main {
-  padding: 20px;
   border: 1px solid var(--border-light);
   background-color: var(--bg-secondary);
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  height: calc(100vh - 76px - 40px - 80px);
+  height: calc(100vh - 76px - 40px - 90px);
 
   &::after {
     z-index: 1;
@@ -90,7 +89,10 @@ p {
       var(--background-noise);
   }
   .default-layout-body-content {
+    padding: 20px;
     position: relative;
     z-index: 2;
+    overflow: auto;
+    height: 100%;
   }
 }
