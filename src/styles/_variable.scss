@@ -1,0 +1,24 @@
+:root {
+  --white: #fff;
+  --black: #000;
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+  --accent-primary: #a64ac9;
+  --accent-secondary: #ff61a6;
+  --accent-tertiary: #00f5d4;
+  --hover-dark: #2a2a2a;
+  --button-bg: var(--accent-primary);
+  --button-hover: #bf60df;
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-heavy: rgba(255, 255, 255, 0.2);
+  --bg-soft: rgb(83, 83, 83);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 10px var(--accent-secondary);
+  --wave-color: #ff4ecd;
+  --background-noise: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=);
+  --font-family: "Roboto", sans-serif;
+}
