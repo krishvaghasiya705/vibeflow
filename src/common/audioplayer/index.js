@@ -2,7 +2,7 @@ import React from "react";
 import "./audioplayer.scss";
 import nodataimnage from "../../assets/images/noimage.avif";
 import { NavLink } from "react-router-dom";
-import { RiFullscreenExitLine, RiFullscreenFill } from "react-icons/ri";
+import { RiFullscreenFill } from "react-icons/ri";
 
 export default function Audioplayer() {
   return (
