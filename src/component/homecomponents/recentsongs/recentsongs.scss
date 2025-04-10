@@ -1,4 +1,4 @@
-.trending-songs {
+.recent-songs {
   h1 {
     font-size: 24px;
     font-weight: 600;
@@ -7,13 +7,13 @@
     font-family: var(--font-family);
   }
 
-  .trending-songs-cards {
+  .recent-songs-cards {
     margin: 20px 0 0 0;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 20px;
 
-    .trending-songs-card {
+    .recent-songs-card {
       width: 100%;
       border-radius: 12px;
       padding: 10px;
@@ -26,14 +26,14 @@
         background-color: var(--bg-primary);
         // box-shadow: var(--shadow-glow);
 
-        .trending-songs-card-image {
+        .recent-songs-card-image {
           .song-play-button {
             transform: translateY(0);
           }
         }
       }
 
-      .trending-songs-card-image {
+      .recent-songs-card-image {
         background-color: var(--bg-secondary);
         height: 171px;
         border-radius: 12px;
@@ -74,7 +74,7 @@
         }
       }
 
-      .trending-songs-card-content {
+      .recent-songs-card-content {
         padding: 10px 0 0 0;
         h2 {
           font-size: 16px;

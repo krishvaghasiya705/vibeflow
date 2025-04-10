@@ -16,6 +16,20 @@
   --border-light: rgba(255, 255, 255, 0.1);
   --border-heavy: rgba(255, 255, 255, 0.2);
   --bg-soft: rgb(83, 83, 83);
+  --bg-hard-orange: #a22b10;
+  --bg-hard-yello: #af9154;
+  --bg-hard-orange-gred: linear-gradient(
+    180deg,
+    rgba(162, 43, 16, 1) 0%,
+    rgba(100, 26, 10, 0.2) 80%,
+    rgba(65, 17, 8, 1) 100%
+  );
+  --bg-hard-yeelo-gred: linear-gradient(
+    180deg,
+    rgba(175, 145, 84, 1) 0%,
+    rgba(121, 94, 41, 1) 80%,
+    rgba(31, 25, 15, 1) 100%
+  );
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
   --shadow-glow: 0 0 10px var(--accent-secondary);
   --wave-color: #ff4ecd;

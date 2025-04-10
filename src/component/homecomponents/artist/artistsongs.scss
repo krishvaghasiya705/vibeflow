@@ -1,0 +1,90 @@
+.artist-songs-main {
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    color: var(--white);
+    font-family: var(--font-family);
+  }
+
+  .artist-songs-grid-main {
+    margin: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
+
+    .artist-songs-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s ease-in-out;
+
+      &:hover {
+        .artist-songs-image {
+          .song-play-button {
+            transform: translateY(0);
+          }
+        }
+      }
+
+      .artist-songs-image {
+        margin: 0 0 10px 0;
+        height: 171px;
+        width: 171px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow-soft);
+        transition: 0.4s ease-in-out;
+
+        .song-play-button {
+          position: absolute;
+          bottom: 30px;
+          right: 30px;
+          transform: translateY(calc(100% + 30px));
+          transition: 0.4s ease-in-out;
+
+          button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            background-color: var(--accent-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+
+            svg {
+              path {
+                fill: var(--white);
+              }
+            }
+
+            &:hover {
+              box-shadow: var(--shadow-glow);
+            }
+          }
+        }
+      }
+
+      a {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        font-family: var(--font-family);
+        display: flex;
+        flex-wrap: wrap;
+        color: var(--white);
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+}

@@ -89,10 +89,19 @@ p {
       var(--background-noise);
   }
   .default-layout-body-content {
-    padding: 20px;
     position: relative;
     z-index: 2;
     overflow: auto;
     height: 100%;
   }
+}
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.space-even {
+  padding: 20px;
 }
