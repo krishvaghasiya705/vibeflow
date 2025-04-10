@@ -1,22 +1,22 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import Header from "../common/header";
 import Sidesection from "../common/sidesection";
 import Audioplayer from "../common/audioplayer";
+import { Outlet } from "react-router-dom";
 
 export default function DefaultLayout() {
   return (
-    <>
+    <div className="default-layout">
       <Header />
-      <main className="default-layout">
+      <div className="default-layout-body">
         <Sidesection />
         <div className="default-layout-body-content-main">
           <div className="default-layout-body-content">
             <Outlet />
           </div>
         </div>
-      </main>
+      </div>
       <Audioplayer />
-    </>
+    </div>
   );
 }

@@ -1,12 +1,14 @@
-
-import { RouterProvider } from 'react-router-dom';
-import router from './routes';
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
+import { AudioPlayerProvider } from "./context/AudioPlayerContext";
 import "./styles/global.scss"
 
 function App() {
-
   return (
-    <RouterProvider router={router} />
+    <AudioPlayerProvider>
+      <RouterProvider router={router} />
+    </AudioPlayerProvider>
   );
 }
 

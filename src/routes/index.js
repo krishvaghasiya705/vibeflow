@@ -3,6 +3,7 @@ import DefaultLayout from "./defaultLayout";
 import Home from "../module/home";
 import Artistsongdetailedpage from "../module/artistsongdetailed";
 import Songdetailedpage from "../module/songdetailed";
+import SearchResults from "../component/searchresults";
 
 const router = createBrowserRouter([
     {
@@ -14,13 +15,17 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "/artisdetailedpage",
+                path: "/search",
+                element: <SearchResults />
+            },
+            {
+                path: "/artisdetailedpage/:id",
                 element: <Artistsongdetailedpage />
             },
             {
-                path: "/songdetailedpage",
+                path: "/songdetailedpage/:id",
                 element: <Songdetailedpage />
-            },
+            }
         ]
     }
 ])

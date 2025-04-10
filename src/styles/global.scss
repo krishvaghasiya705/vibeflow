@@ -13,6 +13,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: var(--black);
+  overflow-x: hidden;
 }
 img {
   -moz-user-select: none;
@@ -57,9 +58,16 @@ p {
 
 .default-layout {
   display: grid;
+  grid-template-rows: 78px 1fr 90px;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+.default-layout-body {
+  display: grid;
   grid-template-columns: 22% 1fr;
   gap: 20px;
-  padding: 20px;
 }
 
 .default-layout-body-content-main {
@@ -68,7 +76,7 @@ p {
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  height: calc(100vh - 76px - 40px - 90px);
+  height: calc(100vh - 78px - 40px - 90px);
 
   &::after {
     z-index: 1;

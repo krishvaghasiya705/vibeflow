@@ -2,54 +2,51 @@ import React from "react";
 import "./artistsongdetailed.scss";
 import { FaPlay } from "react-icons/fa";
 import { IoPauseSharp } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
 
-export default function Artistsongdetailedsection() {
+export default function Artistsongdetailedsection({ artist, isPlaying, onPlayClick }) {
   return (
     <div className="artist-song-detailed-section-main">
       <div className="artist-song-detailed-section-body">
         <div className="artist-song-detailed-section-body-head space-even">
           <div className="artist-image">
             <img
-              src="https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk="
-              alt="No-Data Found"
+              src={artist.image || "https://via.placeholder.com/150"}
+              alt={artist.name || "No Data Found"}
             />
           </div>
-          <h1>Artist Name</h1>
+          <h1>{artist.name}</h1>
         </div>
         <div className="artist-song-detailed-section-body-content space-even">
           <div className="play-song-button">
-            <button type="button">
-              <FaPlay fontSize={30} />
-              {/* <IoPauseSharp fontSize={40} /> */}
+            <button type="button" onClick={() => onPlayClick(artist.songs[0])}>
+              {isPlaying ? <IoPauseSharp fontSize={30} /> : <FaPlay fontSize={30} />}
             </button>
           </div>
           <div className="artist-songs-detail">
             <h2>Songs</h2>
             <div className="artist-songs-detail-table-flex">
-              <NavLink to={"/"}>
-                <div className="artist-songs-detail-table-box">
+              {artist.songs.map((song, index) => (
+                <div key={song.id} className="artist-songs-detail-table-box">
                   <div className="artist-songs-detail-table-box-number">
-                    <span>1</span>
+                    <span>{index + 1}</span>
                     <div className="artist-song-play-pause-icon">
-                      <FaPlay fontSize={16} />
-                      {/* <IoPauseSharp fontSize={20} /> */}
+                      {isPlaying ? <IoPauseSharp fontSize={16} /> : <FaPlay fontSize={16} />}
                     </div>
                   </div>
                   <div className="artist-songs-detail-table-box-song-detail">
                     <div className="song-image">
                       <img
-                        src="https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk="
-                        alt="No-Data Found"
+                        src={song.image || "https://via.placeholder.com/150"}
+                        alt={song.name || "No Data Found"}
                       />
                     </div>
-                    <p>Song Name</p>
+                    <p>{song.name}</p>
                   </div>
                   <div className="artist-songs-detail-table-box-song-time">
-                    <span>0:00</span>
+                    <span>{Math.floor(song.duration / 60)}:{(song.duration % 60).toString().padStart(2, '0')}</span>
                   </div>
                 </div>
-              </NavLink>
+              ))}
             </div>
           </div>
         </div>
