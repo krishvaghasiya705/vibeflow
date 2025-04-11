@@ -76,7 +76,7 @@ p {
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  height: calc(100vh - 78px - 40px - 90px);
+  height: calc(100vh - 78px - 90px - 90px);
 
   &::after {
     z-index: 1;

@@ -28,7 +28,7 @@ const AudioPlayer = () => {
     isShuffled,
     isLooped,
     togglePlayPause,
-    setVolume,
+    setVolumeLevel,
     toggleMute,
     toggleShuffle,
     toggleLoop,
@@ -51,9 +51,10 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     if (volumeRef.current) {
-      volumeRef.current.style.setProperty('--value', `${volume * 100}%`);
+      const volumePercent = isMuted ? 0 : volume * 100;
+      volumeRef.current.style.setProperty('--value', `${volumePercent}%`);
     }
-  }, [volume]);
+  }, [volume, isMuted]);
 
   const handlePlayPause = async () => {
     if (isButtonDisabled) return;
@@ -63,15 +64,19 @@ const AudioPlayer = () => {
   };
 
   const handleVolumeChange = (e) => {
-    setVolume(parseFloat(e.target.value));
+    const newVolume = parseFloat(e.target.value);
+    setVolumeLevel(newVolume);
   };
 
   const handleProgressChange = (e) => {
     const newTime = (e.target.value / 100) * duration;
-    if (progressRef.current) {
-      progressRef.current.style.setProperty('--value', `${e.target.value}%`);
-    }
     seekTo(newTime);
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
   if (!currentSong) {
@@ -90,21 +95,18 @@ const AudioPlayer = () => {
     );
   }
 
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-  };
-
   return (
     <div className="audio-player">
       <div className="audio-player-left">
         <div className="audio-player-image">
-          <img src={currentSong.coverImage} alt={currentSong.title} />
+          <img
+            src={currentSong.image || "https://via.placeholder.com/150"}
+            alt={currentSong.name || "No Data Found"}
+          />
         </div>
         <div className="audio-player-info">
-          <h3>{currentSong.title}</h3>
-          <p>{currentSong.artist}</p>
+          <h3>{currentSong.name}</h3>
+          <p>{currentSong.artist_name || "Unknown Artist"}</p>
         </div>
       </div>
 
@@ -162,7 +164,7 @@ const AudioPlayer = () => {
             min="0"
             max="1"
             step="0.01"
-            value={volume}
+            value={isMuted ? 0 : volume}
             onChange={handleVolumeChange}
             disabled={isLoading}
             ref={volumeRef}
