@@ -3,6 +3,7 @@ import "./songs.scss";
 import { NavLink } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { useAudioPlayer } from "../../../context/AudioPlayerContext";
+import { fetchSongs } from "../../../utils/jamendoApi";
 
 export default function Songs() {
   const { playSong, updatePlaylist } = useAudioPlayer();
@@ -12,10 +13,9 @@ export default function Songs() {
   useEffect(() => {
     const loadSongs = async () => {
       try {
-        const response = await fetch("https://api.jamendo.com/v3.0/tracks/?client_id=YOUR_CLIENT_ID&format=json&limit=10");
-        const data = await response.json();
-        setSongs(data.results);
-        updatePlaylist(data.results);
+        const fetchedSongs = await fetchSongs();
+        setSongs(fetchedSongs);
+        updatePlaylist(fetchedSongs);
       } catch (error) {
         console.error("Error loading songs:", error);
         setSongs([]);

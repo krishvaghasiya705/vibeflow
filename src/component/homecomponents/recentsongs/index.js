@@ -3,6 +3,7 @@ import "./recentsongs.scss";
 import { NavLink } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { useAudioPlayer } from "../../../context/AudioPlayerContext";
+import { fetchRecentSongs } from "../../../utils/jamendoApi";
 
 export default function Recentsongs() {
   const { playSong, updatePlaylist } = useAudioPlayer();
@@ -12,10 +13,9 @@ export default function Recentsongs() {
   useEffect(() => {
     const loadSongs = async () => {
       try {
-        const response = await fetch("https://api.jamendo.com/v3.0/tracks/?client_id=YOUR_CLIENT_ID&format=json&limit=10&order=releasedate_desc");
-        const data = await response.json();
-        setSongs(data.results);
-        updatePlaylist(data.results);
+        const fetchedSongs = await fetchRecentSongs();
+        setSongs(fetchedSongs);
+        updatePlaylist(fetchedSongs);
       } catch (error) {
         console.error("Error loading recent songs:", error);
         setSongs([]);

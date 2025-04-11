@@ -24,6 +24,52 @@ export async function fetchSongs() {
   }
 }
 
+export async function fetchRecentSongs() {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/tracks/?client_id=${CLIENT_ID}&format=json&limit=10&order=releasedate_desc`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch recent songs");
+    }
+    const data = await response.json();
+    return data.results.map(song => ({
+      id: song.id,
+      name: song.name,
+      artist_name: song.artist_name,
+      image: song.image,
+      audio: song.audio,
+      duration: song.duration
+    }));
+  } catch (error) {
+    console.error("Error fetching recent songs:", error);
+    return [];
+  }
+}
+
+export async function fetchTrendingSongs() {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/tracks/?client_id=${CLIENT_ID}&format=json&limit=10&order=popularity_total`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch trending songs");
+    }
+    const data = await response.json();
+    return data.results.map(song => ({
+      id: song.id,
+      name: song.name,
+      artist_name: song.artist_name,
+      image: song.image,
+      audio: song.audio,
+      duration: song.duration
+    }));
+  } catch (error) {
+    console.error("Error fetching trending songs:", error);
+    return [];
+  }
+}
+
 export async function fetchArtists(artistId) {
   try {
     const [artistResponse, tracksResponse] = await Promise.all([
